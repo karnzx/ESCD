@@ -11,5 +11,5 @@ py -m unittest -v tests/test_number_utils.py;
 ### Using nose2 run to all test
 
 ```
-nose2 -v --with-coverage
+nose2 -v --with-coverage --coverage src
 ```

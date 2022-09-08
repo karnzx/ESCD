@@ -4,7 +4,7 @@ import view_regist
 
 # how to test
 # cd test_double
-# nose2 -v --with-coverage --coverage view_regist test_view_regist
+# nose2 -v --with-coverage --coverage src
 
 
 class ViewRegistryTest(unittest.TestCase):
