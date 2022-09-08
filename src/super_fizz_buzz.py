@@ -16,12 +16,12 @@ class FizzBuzz:
     def __init__(self, number: int) -> None:
         self.number = number
 
-    def fizz(self):
+    def fizz(self) -> str:
         if self.number % 3 == 0:
             return "Fizz"
         return ""
 
-    def buzz(self):
+    def buzz(self) -> str:
         if self.number % 5 == 0:
             return "Buzz"
         return ""
@@ -39,12 +39,12 @@ class SuperFizzBuzz(FizzBuzz):
     def __init__(self, number: int) -> None:
         super().__init__(number)
 
-    def fizz(self):
+    def fizz(self) -> str:
         if self.number % 9 == 0:
             return "FizzFizz"
         return super().fizz()
 
-    def buzz(self):
+    def buzz(self) -> str:
         if self.number % 25 == 0:
             return "BuzzBuzz"
         return super().buzz()
