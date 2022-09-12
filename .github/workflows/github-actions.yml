@@ -24,6 +24,8 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
   Test:
     runs-on: ubuntu-latest
+    # wait for Code Analysis (no parallel)
+    needs: Code-Analysis
     steps:
     - name: Check out repository code
       uses: actions/checkout@v3
