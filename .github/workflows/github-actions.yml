@@ -1,10 +1,15 @@
 name: GitHub Actions Python
 
-on: [push]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   Code-Analysis:
     runs-on: ubuntu-latest
+
     steps:
     - name: Check out repository code
       uses: actions/checkout@v3
@@ -22,6 +27,7 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
   Test:
     runs-on: ubuntu-latest
     # wait for Code Analysis (no parallel)
@@ -40,3 +46,29 @@ jobs:
     - name: Nose with coverage on src 
       run: |
         nose2 -v --with-coverage --coverage src
+
+  CodeQL-Build:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+
+    permissions:
+      # required for all workflows
+      security-events: write
+
+      # only required for workflows in private repositories
+      actions: read
+      contents: read
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Initializes the CodeQL tools for scanning.
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: python
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
