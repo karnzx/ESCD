@@ -3,7 +3,7 @@ import unittest
 from src.grid_challenge import grid_challenge
 
 
-class FunnyStringsTest(unittest.TestCase):
+class GridChallengeTest(unittest.TestCase):
     def test_abc_lmp_qrt_should_be_YES(self):
         result = grid_challenge(["abc", "lmp", "qrt"])
         self.assertEqual(result, "YES")
