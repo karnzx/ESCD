@@ -3,7 +3,7 @@ import unittest
 from src.alternating_characters import alternating_characters
 
 
-class FunnyStringsTest(unittest.TestCase):
+class AlternatingCharactersTest(unittest.TestCase):
     def test_AAAA_should_be_3(self):
         result = alternating_characters("AAAA")
         self.assertEqual(result, 3)

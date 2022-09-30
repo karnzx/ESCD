@@ -3,7 +3,7 @@ import unittest
 from src.caesar_cipher import caesar_cipher
 
 
-class FunnyStringsTest(unittest.TestCase):
+class CaesarCipherTest(unittest.TestCase):
     def test_middle_Outz_with_2_should_be_okffng_Qwvb(self):
         result = caesar_cipher("middle-Outz", 2)
         self.assertEqual(result, "okffng-Qwvb")
