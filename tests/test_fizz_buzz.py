@@ -3,7 +3,7 @@ import unittest
 from src.fizz_buzz import get_fizz_buzz
 
 
-class FizBuzzTesst(unittest.TestCase):
+class FizBuzzTest(unittest.TestCase):
     def test_3_should_fizz(self):
         result = get_fizz_buzz(3)
         self.assertEqual(result, "Fizz")
